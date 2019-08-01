@@ -23,3 +23,18 @@ after_success: # Build the prod versions
     - docker push jalexanderbryant/prod-nginx
     - docker push jalexanderbryant/prod-server
     - docker push jalexanderbryant/prod-worker
+
+
+deploy: 
+    provider: elasticbeanstalk
+    region: us-east-1
+    app: docker-complex
+    env: DockerComplex-env
+    bucket_name: elasticbeanstalk-us-east-1-052464226224
+    bucket_path: docker-complex
+    on:
+        branch: master # Watch for changes on git branch master
+    access_key_id: 
+        secure: $AWS_ACCESS_KEY
+    secret_access_key:
+        secure: $AWS_SECRET_KEY

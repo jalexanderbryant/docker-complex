@@ -1,0 +1,42 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "jalexanderbryant/prod-client",
+            "hostname": "client",
+            "essential": false
+        },
+
+        
+        {
+            "name": "server",
+            "image": "jalexanderbryant/prod-server",
+            "hostname": "api",
+            "essential": false
+        },
+
+
+        {
+            "name": "worker",
+            "image": "jalexanderbryant/prod-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+
+        {
+            "name": "nginx",
+            "image": "jalexanderbryant/prod-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
+        }
+    ]
+
+}
