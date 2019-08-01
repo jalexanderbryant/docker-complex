@@ -5,7 +5,8 @@
             "name": "client",
             "image": "jalexanderbryant/prod-client",
             "hostname": "client",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
 
         
@@ -13,7 +14,8 @@
             "name": "server",
             "image": "jalexanderbryant/prod-server",
             "hostname": "api",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
 
 
@@ -21,7 +23,8 @@
             "name": "worker",
             "image": "jalexanderbryant/prod-worker",
             "hostname": "worker",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
 
         {
@@ -29,6 +32,7 @@
             "image": "jalexanderbryant/prod-nginx",
             "hostname": "nginx",
             "essential": true,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 80,
